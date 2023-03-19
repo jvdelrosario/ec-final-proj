@@ -155,180 +155,65 @@
                         <ul>
                             <li class="active" data-filter="*">All</li>
                             <!-- strawberry -->
-							<li data-filter=".strawberry">Pies</li>
-                            <li data-filter=".berry">Tarts</li>
-                            <li data-filter=".lemon">Donuts</li>
+							<li data-filter="#Pies">Pies</li>
+                            <li data-filter="#Tarts">Tarts</li>
+                            <li data-filter="#Donuts">Donuts</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
 			<div class="row product-lists">
-			
-
-				@for($i = 0; $i < 9; $i++)
-				<div class="col-lg-4 col-md-6 text-center strawberry">
+				@foreach($categories as $cat)
+				@if($cat->name == 'Pies')
+				@foreach($products as $prod)
+				@if($prod->category_id == 1)
+				<div class="col-lg-4 col-md-6 text-center" id={{$cat["name"]}} >
 					<div class="single-product-item">
 						<div class="product-image">
 							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/pies/Chocolate-Peanut-Butter-Pie.jpeg') }}" style="width:80%;" alt=""></a>
 						</div>
-						<h3>Chocolate Peanut Butter Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
+						<h3>{{$prod["product_name"]}}</h3>
+						<p class="product-price"><span>Per Kg</span> ${{$prod["price"]}} </p>
 						<a href="{{ url('/cart') }}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
-				@endfor
-
-				@for($i = 0; $i < 9; $i++)
-				<div class="col-lg-4 col-md-6 text-center berry">
+				@endif
+				@endforeach
+				@endif
+				@if($cat->name == 'Tarts')
+				@foreach($products as $prod)
+				@if($prod->category_id == 2)
+				<div class="col-lg-4 col-md-6 text-center" id={{$cat["name"]}} >
 					<div class="single-product-item">
 						<div class="product-image">
 							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/pies/Chocolate-Peanut-Butter-Pie.jpeg') }}" style="width:80%;" alt=""></a>
 						</div>
-						<h3>Chocolate Peanut Butter Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
+						<h3>{{$prod["product_name"]}}</h3>
+						<p class="product-price"><span>Per Kg</span> ${{$prod["price"]}} </p>
 						<a href="{{ url('/cart') }}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
-				@endfor
-				
-				@for($i = 0; $i < 9; $i++)
-				<div class="col-lg-4 col-md-6 text-center lemon">
+				@endif
+				@endforeach
+				@endif
+				@if($cat->name == 'Donuts')
+				@foreach($products as $prod)
+				@if($prod->category_id == 3)
+				<div class="col-lg-4 col-md-6 text-center" id={{$cat["name"]}} >
 					<div class="single-product-item">
 						<div class="product-image">
 							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/pies/Chocolate-Peanut-Butter-Pie.jpeg') }}" style="width:80%;" alt=""></a>
 						</div>
-						<h3>Chocolate Peanut Butter Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
+						<h3>{{$prod["product_name"]}}</h3>
+						<p class="product-price"><span>Per Kg</span> ${{$prod["price"]}} </p>
 						<a href="{{ url('/cart') }}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
-				@endfor
-
-
-				
-				<!-- <div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/Classic-Apple-Crumb-Pie.jpeg') }}" alt=""></a>
-						</div>
-						<h3>Classic Apple Crumb Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/Double-Chocolate-Pudding-Pie.jpeg') }}" alt=""></a>
-						</div>
-						<h3>Double Chocolate Pudding Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/Four-Flavor-Sheet-Pan-Pie.jpeg') }}" alt=""></a>
-						</div>
-						<h3>Four-Flavor Sheet Pan Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/Key-Lime-Pie.jpeg') }}" alt=""></a>
-						</div>
-						<h3>Key Lime Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/Kiwi-Lime-Pie.jpeg') }}" alt=""></a>
-						</div>
-						<h3>Kiwi Lime Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/Ladd_s-Chocolate-Pie.jpeg') }}" alt=""></a>
-						</div>
-						<h3>Ladd's Chocolate Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/Pumpkin-Pie.jpeg') }}" alt=""></a>
-						</div>
-						<h3>Pumpkin Pie</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center berry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/product-img-2.jpg') }}" alt=""></a>
-						</div>
-						<h3>Berry</h3>
-						<p class="product-price"><span>Per Kg</span> 70$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center lemon">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/product-img-3.jpg') }}" alt=""></a>
-						</div>
-						<h3>Lemon</h3>
-						<p class="product-price"><span>Per Kg</span> 35$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/product-img-4.jpg') }}" alt=""></a>
-						</div>
-						<h3>Avocado</h3>
-						<p class="product-price"><span>Per Kg</span> 50$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/product-img-5.jpg') }}" alt=""></a>
-						</div>
-						<h3>Green Apple</h3>
-						<p class="product-price"><span>Per Kg</span> 45$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/product-img-6.jpg') }}" alt=""></a>
-						</div>
-						<h3>Strawberry</h3>
-						<p class="product-price"><span>Per Kg</span> 80$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-			</div> -->
-
+				@endif
+				@endforeach
+				@endif
+				@endforeach
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="pagination-wrap">

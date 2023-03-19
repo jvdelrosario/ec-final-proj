@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use App\Models\categories;
+use App\Models\products;
 
 class TestController extends Controller
 {
@@ -28,5 +31,11 @@ class TestController extends Controller
         //     Session::all()
         // );
         return view('homepage');
+    }
+    public function viewProducts(){
+        $categories = categories::all();
+        $products = products::all();
+        return view('shop',['categories'=>$categories,
+                            'products'=>$products]);
     }
 }

@@ -27,9 +27,8 @@ Route::get('/checkout', function(){
 Route::get('/contact', function(){
     return view('contact');
 });
-Route::get('/shop', function(){
-    return view('shop');
-});
+Route::get('/shop',[TestController::class, 'viewProducts']);
+
 Route::get('/single_product', function(){
     return view('single-product');
 });

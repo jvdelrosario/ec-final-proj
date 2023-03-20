@@ -168,16 +168,22 @@
 				@if($cat->name == 'Pies')
 				@foreach($products as $prod)
 				@if($prod->category_id == 1)
-				<div class="col-lg-4 col-md-6 text-center" id={{$cat["name"]}} >
+				
+					<div class="col-lg-4 col-md-6 text-center" id={{$cat["name"]}} >
+				
 					<div class="single-product-item">
+						
 						<div class="product-image">
 							<a href="single-product.html"><img src="{{ asset('import/assets/user/img/products/pies/'.$prod["image"].'') }}" style="width:80%; height: 30vh" alt=""></a>
 						</div>
 						<h3>{{$prod["product_name"]}}</h3>
 						<p class="product-price"><span>Per Kg</span> ${{$prod["price"]}} </p>
-						<a href="{{ url('/cart') }}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					
+					<a href="{{ url('cart/'.$prod["id"].'') }}"  class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
+					
 				</div>
+				
 				@endif
 				@endforeach
 				@endif

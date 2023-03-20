@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+$prod_id = 1;
 Route::get('/', [TestController::class, 'index']);
 Route::get('/about', function(){
         return view('about');
 });
-Route::get('/cart', function(){
-    return view('cart');
-});
+Route::get('/cart/{prodid}', [TestController::class, 'getProduct',$prod_id]);
 Route::get('/checkout', function(){
     return view('checkout');
 });

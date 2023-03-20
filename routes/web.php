@@ -32,14 +32,14 @@ Route::get('/shop',[TestController::class, 'viewProducts']);
 Route::get('/single_product', function(){
     return view('single-product');
 });
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
-Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::get('/home', function(){
+    return view('404');
+})->name('home');
 
-Route::get('/registration', function () {
-    return view('auth.register');
-})->name('registration');
-Route::post('/registration', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', 'App\Http\Controllers\Auth\RegisterController@register');
 
-// Route::get('/about', [TestController::class, 'about']);
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login');
+
+Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');

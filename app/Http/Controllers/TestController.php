@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Models\categories;
 use App\Models\products;
+use Illuminate\View\View;
 
 class TestController extends Controller
 {
@@ -37,5 +38,18 @@ class TestController extends Controller
         $products = products::all();
         return view('shop',['categories'=>$categories,
                             'products'=>$products]);
+    }
+    // public function getProducts(string $prodid): View{
+    //     return view ('cart',['id'=> products::findOrFail($prodid)]);
+    // }
+    public function getProduct(String $prodid):View{
+      
+        $products = DB::table('products')->where('id', $prodid)->first();
+        return view('cart',['products'=>$products]);
+       
+        // foreach($products as $prod){
+        //     echo $prod;
+        // };
+      
     }
 }

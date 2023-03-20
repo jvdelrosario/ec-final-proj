@@ -59,13 +59,13 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li><a href="#">Home</a>
+								<li><a href="{{ url('/') }}">Home</a>
 									<ul class="sub-menu">
 										<li><a href="index.html">Static Home</a></li>
 										<li><a href="index_2.html">Slider Home</a></li>
 									</ul>
 								</li>
-								<li><a href="about.html">About</a></li>
+								<li><a href="{{ url('/about') }}">About</a></li>
 								<!-- <li><a href="#">Pages</a>
 									<ul class="sub-menu">
 										<li><a href="404.html">404 page</a></li>
@@ -83,8 +83,8 @@
 										<li><a href="single-news.html">Single News</a></li>
 									</ul>
 								</li> -->
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
+								<li><a href="{{ url('/contact') }}">Contact</a></li>
+								<li><a href="{{ url('/shop') }}">Shop</a>
 									<ul class="sub-menu">
 										<li><a href="shop.html">Shop</a></li>
 										<li><a href="checkout.html">Check Out</a></li>
@@ -94,9 +94,9 @@
 								</li>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="{{ url('/cart') }}"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-										<a class="" href="#"><i class="fas fa-solid fa-user"></i></a>
+										<a class="" href="{{ url('/home') }}"><i class="fas fa-solid fa-user"></i></a>
 									</div>
 								</li>
 							</ul>

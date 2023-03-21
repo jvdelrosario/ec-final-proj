@@ -144,9 +144,9 @@
 		</div>
 	</div>
 	<!-- end breadcrumb section -->
-	@foreach($products as $prod)
-		{{$prod}}								
-	@endforeach
+	
+								
+
 	<!-- cart -->
 	<div class="cart-section mt-150 mb-150">
 		<div class="container">
@@ -156,24 +156,21 @@
 						<table class="cart-table">
 							<thead class="cart-table-head">
 								<tr class="table-head-row">
-									<th class="product-remove"></th>
-									<th class="product-image">Product Image</th>
-									<th class="product-name">Name</th>
-									<th class="product-price">Price</th>
-									<th class="product-quantity">Quantity</th>
-									<th class="product-total">Total</th>
+								@foreach($products as $prod)
+								<img href="single-product.html"  class="rounded mx-auto d-block"><img src="{{ asset('import/assets/user/img/products/pies/'.$prod->image.'') }}" style="width:50%; height: 30vh" alt=""></a>
+								@endforeach	
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="table-body-row">
-									
+								@foreach($products as $prod)
 									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
 									<td class="product-image"><img src="{{ asset('import/assets/user/img/products/product-img-1.jpg') }}" alt=""></td>
-									<td class="product-name"></td>
-									<td class="product-price">$85</td>
+									<td class="product-name">{{$prod->product_name}}</td>
+									<td class="product-price">${{$prod->price}}</td>
 									<td class="product-quantity"><input type="number" placeholder="0"></td>
 									<td class="product-total">1</td>
-								
+									@endforeach
 								</tr>
 								<tr class="table-body-row">
 									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>

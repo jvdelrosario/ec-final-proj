@@ -44,7 +44,7 @@ class TestController extends Controller
     // }
     public function getProduct(String $prodid):View{
       
-        $products = DB::table('products')->where('id', $prodid)->first();
+        $products = DB::table('products')->where('id', $prodid)->get();
         return view('cart',['products'=>$products]);
        
         // foreach($products as $prod){

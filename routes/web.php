@@ -27,12 +27,36 @@ Route::get('/contact', function(){
 });
 Route::get('/shop',[TestController::class, 'viewProducts']);
 
-Route::get('/single_product', function(){
+Route::get('/single_product', function(){ //single product view
     return view('single-product');
 });
 Route::get('/home', function(){
     return view('404');
 })->name('home');
+
+Route::get('/admin-home', function(){
+    return view('admin.template');
+})->name('admin-home');
+
+Route::get('/admin-login', function(){
+    return view('admin.login');
+})->name('admin-login');
+
+Route::get('/admin-users', function(){
+    return view('admin.users');
+})->name('admin-users');
+
+Route::get('/admin-products', function(){
+    return view('admin.products');
+})->name('admin-products');
+
+Route::get('/admin-edit-product', function(){
+    return view('admin.edit-products');
+})->name('admin-edit-product');
+
+Route::get('/admin-edit-user', function(){
+    return view('admin.edit-users');
+})->name('admin-edit-user');
 
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', 'App\Http\Controllers\Auth\RegisterController@register');

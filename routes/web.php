@@ -27,17 +27,41 @@ Route::get('/contact', function(){
 });
 Route::get('/shop',[TestController::class, 'viewProducts']);
 
-Route::get('/single_product', function(){
+Route::get('/single_product', function(){ //single product view
     return view('single-product');
 });
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
-Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::get('/home', function(){
+    return view('404');
+})->name('home');
 
-Route::get('/registration', function () {
-    return view('auth.register');
-})->name('registration');
-Route::post('/registration', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
+Route::get('/admin-home', function(){
+    return view('admin.template');
+})->name('admin-home');
 
-// Route::get('/about', [TestController::class, 'about']);
+Route::get('/admin-login', function(){
+    return view('admin.login');
+})->name('admin-login');
+
+Route::get('/admin-users', function(){
+    return view('admin.users');
+})->name('admin-users');
+
+Route::get('/admin-products', function(){
+    return view('admin.products');
+})->name('admin-products');
+
+Route::get('/admin-edit-product', function(){
+    return view('admin.edit-products');
+})->name('admin-edit-product');
+
+Route::get('/admin-edit-user', function(){
+    return view('admin.edit-users');
+})->name('admin-edit-user');
+
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', 'App\Http\Controllers\Auth\RegisterController@register');
+
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login');
+
+Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
